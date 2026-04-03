@@ -7,9 +7,10 @@ COPY . .
 # Give permission to mvnw
 RUN chmod +x mvnw
 
-# Build the project
+# Build jar file
 RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "target/*.jar"]
+# Run jar automatically
+CMD ["sh", "-c", "java -jar target/*.jar"]
